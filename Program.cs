@@ -77,9 +77,17 @@ namespace Pomodoro
 
             var gui = new PomodoroConsoleUI(engine);
 
+            PomodoroConsoleHandler handler = new();
+
+            _ = Task.Run(() => handler.HandleInput(engine, gui));
+
             await gui.WelcomeMessageAsync();
-            await engine.Start();
-            await gui.EndMessageAsync();
+
+            await engine.StartAsync();
+
+            await (engine.IsCompleted ?
+                gui.EndMessageAsync() :
+                gui.IntMessageAsync());
         }
     }
 }
