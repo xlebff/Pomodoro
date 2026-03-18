@@ -1,136 +1,120 @@
-﻿using Spectre.Console;
+﻿using Pomodoro.Resources;
+using Spectre.Console;
 using Spectre.Console.Rendering;
 
 namespace Pomodoro
 {
-    internal class PomodoroConsoleUI
+    internal enum ConsolePrintingState { Panding, Typing, Completed }
+
+    internal class PomodoroConsoleUI()
     {
-        public bool IsPrinting => _isPrinting;
+        public ConsolePrintingState PrintingState => _state;
 
 
         private readonly string[] PomodoroPhaseNames = ["Working..", "Resting.."];
 
-        private readonly PomodoroEngine _engine;
-
-        private bool _isPrinting = false;
+        private ConsolePrintingState _state = ConsolePrintingState.Panding;
         
         private CancellationTokenSource? _progressBarCts = new();
 
-        private CancellationTokenSource? _printingCts;
+        private CancellationTokenSource? _typingCts, _completedCts;
 
 
-        public PomodoroConsoleUI(PomodoroEngine engine)
+        private async Task SerialPrint(string text, 
+            CancellationToken typingToken,
+            CancellationToken completedToken)
         {
-            _engine = engine;
-            _engine.OnPhaseStart += OnPhaseStart;
-            _engine.OnPhaseEnd += OnPhaseEnd;
-            _engine.OnPomodoroEnd += OnPomodoroEnd;
-            _engine.OnPomodoroInt += OnPomodoroInt;
-        }
-
-
-        private async Task SerialPrint(string text, CancellationToken token)
-        {
-            _isPrinting = true;
-
-            foreach (char c in text)
-            {
-                if (token.IsCancellationRequested)
-                {
-                    AnsiConsole.Clear();
-                    AnsiConsole.Write(text);
-                    _isPrinting = false;
-                    return;
-                }
-
-                AnsiConsole.Write(c);
-                await Task.Delay(100);
-            }
-            await Task.Delay(100);
-
-            _isPrinting = false;
-        }
-
-        private async Task SerialPrintln(string text, CancellationToken token)
-        {
-            _isPrinting = true;
+            _state = ConsolePrintingState.Typing;
 
             await Task.Delay(50);
 
-            foreach (char c in text)
+            await AnsiConsole.Live(Text.Empty)
+                .StartAsync(async ctx =>
+                {
+                    for (int i = 0; i < text.Length; ++i)
+                    {
+                        if (typingToken.IsCancellationRequested)
+                        {
+                            ctx.UpdateTarget(new Text(text));
+                            break;
+                        }
+
+                        ctx.UpdateTarget(new Text(text[..(i + 1)]));
+
+                        switch (text[i])
+                        {
+                            case ',':
+                            case '.':
+                            case '!':
+                            case '?':
+                            case '\n':
+                                await Task.Delay(300);
+                                break;
+                            default:
+                                await Task.Delay(50);
+                                break;
+                        }
+                    }
+                });
+
+            _state = ConsolePrintingState.Completed;
+
+            /* task.delay before returning */
+            /* _state = Panding; */
+            try
             {
-                if (token.IsCancellationRequested)
-                {
-                    AnsiConsole.Clear();
-                    AnsiConsole.WriteLine(text);
-                    _isPrinting = false;
-                    return;
-                }
-
-                AnsiConsole.Write(c);
-                switch (c)
-                {
-                    case ',':
-                    case '.':
-                    case '!':
-                    case '?':
-                    case '\n':
-                        await Task.Delay(300);
-                        break;
-                    default:
-                        await Task.Delay(50);
-                        break;
-                }
+                await Task.Delay(TimeSpan.FromSeconds(30), completedToken);
             }
-            await Task.Delay(500);
-            AnsiConsole.WriteLine();
-
-            _isPrinting = false;
+            catch (OperationCanceledException)
+            {
+                ;
+            }
+            finally
+            {
+                _state = ConsolePrintingState.Panding;
+            }
         }
+
+        private async Task SerialPrintln(string text,
+            CancellationToken typingToken,
+            CancellationToken completedToken)
+        {
+            await SerialPrint(text, typingToken, completedToken);
+            AnsiConsole.WriteLine();
+        }
+
+
+        public async Task Message(string text)
+        {
+            _typingCts?.Dispose();
+            _typingCts = new();
+
+            _completedCts?.Dispose();
+            _completedCts = new();
+
+            await SerialPrint(text,
+                _typingCts!.Token, _completedCts!.Token);
+        }
+
+        public async Task WelcomeMessageAsync(object sender, EventArgs e) =>
+            await Message(Messages.Welcome);
+
+        public async Task EndMessageAsync() =>
+            await Message(Messages.Final);
+
+        public async Task IntMessageAsync(object sender, EventArgs e) =>
+            await Message(Messages.Interruption);
 
 
         public void Skip()
         {
-            _printingCts?.Cancel();
+            if (_state == ConsolePrintingState.Completed)
+                _completedCts?.Cancel();
+            else _typingCts?.Cancel();
         }
 
-        public async Task WelcomeMessageAsync()
-        {
-            _printingCts?.Dispose();
-            _printingCts = new();
 
-            await SerialPrintln("Hey there! Welcome to your cozy " +
-                "Pomodoro timer!\nI'm here to help you stay focused " +
-                "and take sweet breaks.\nReady to dive in? Let's make " +
-                "today productive and fun! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
-                _printingCts!.Token);
-        }
-
-        public async Task EndMessageAsync()
-        {
-            await Task.Delay(100);
-
-            _printingCts?.Dispose();
-            _printingCts = new();
-
-            await SerialPrintln("Great job!\n" +
-                "You've completed your Pomodoro session! " +
-                "I'm so proud of you for staying focused.\n" +
-                "Keep up the amazing work. " +
-                "See you next session! (◕‿◕) ❤️",
-                _printingCts!.Token);
-        }
-
-        public async Task IntMessageAsync()
-        {
-            _printingCts?.Dispose();
-            _printingCts = new();
-
-            await SerialPrintln("Hope to see you soon!",
-                _printingCts!.Token);
-        }
-
-        public async Task DrawProgressBar()
+        public async Task DrawProgressBar(PomodoroEngine e)
         {
             AnsiConsole.Clear();
 
@@ -143,12 +127,12 @@ namespace Pomodoro
                     new CustomRemainingTimeColumn())
                 .StartAsync(async ctx =>
                 {
-                    var task = ctx.AddTask(PomodoroPhaseNames[(int)_engine.Phase],
-                        maxValue: _engine.CurrentDuration.TotalSeconds);
+                    var task = ctx.AddTask(PomodoroPhaseNames[(int)e.Phase],
+                        maxValue: e.CurrentDuration.TotalSeconds);
 
                     while (!ctx.IsFinished)
                     {
-                        task.Value = _engine.Elapsed.TotalSeconds;
+                        task.Value = e.Elapsed.TotalSeconds;
 
                         if (_progressBarCts!.IsCancellationRequested)
                         {
@@ -173,7 +157,7 @@ namespace Pomodoro
 
             _progressBarCts?.Dispose();
             _progressBarCts = new();
-            _ = Task.Run(DrawProgressBar);
+            _ = Task.Run(() => DrawProgressBar((PomodoroEngine)sender!));
         }
 
         public void OnPhaseEnd(object? sender, EventArgs e)
@@ -182,9 +166,10 @@ namespace Pomodoro
             AnsiConsole.Clear();
         }
 
-        public void OnPomodoroEnd(object? sender, EventArgs e)
+        public async Task OnPomodoroEnd(object? sender, EventArgs e)
         {
             _progressBarCts?.Cancel();
+            await EndMessageAsync();
         }
 
         public void OnPomodoroInt(object? sender, EventArgs e)
@@ -198,7 +183,7 @@ namespace Pomodoro
         public override IRenderable Render(RenderOptions options, ProgressTask task, TimeSpan deltaTime)
         {
             var remaining = TimeSpan.FromSeconds(task.MaxValue - task.Value);
-            return new Markup(remaining.ToString(@"mm\:ss"));
+            return new Markup($"[blue]{remaining:mm\\:ss}[/]");
         }
     }
 }

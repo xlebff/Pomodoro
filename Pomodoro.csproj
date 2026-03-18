@@ -10,10 +10,36 @@
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Spectre.Console" Version="0.54.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Messages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Messages.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TimerSound\alarm_sound.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TimerSound\tick_sound.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

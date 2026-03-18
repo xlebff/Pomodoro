@@ -1,7 +1,7 @@
 {
-  "SetsCount": 5,
-  "WorkingPhaseMinutes": 0.1,
-  "RestingPhaseMinutes": 0.05,
+  "SetsCount": 2,
+  "WorkingPhaseMinutes": 2,
+  "RestingPhaseMinutes": 1,
   "LongRestingPhaseMinutes": null,
   "SetsUntilLongResting": null
 }

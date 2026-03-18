@@ -3,7 +3,6 @@
 namespace Pomodoro
 {
     internal enum PomodoroPhase { Working, Resting }
-    internal enum PomodoroState { Running, Paused, Completed, Interrupted }
 
     internal class PomodoroEngine
     {
@@ -21,6 +20,7 @@ namespace Pomodoro
         private bool _isActive;
         private bool _isPaused = false;
         private bool _isComplete = true;
+        private bool _isTicking = false;
 
         private PomodoroPhase _phase;
 
@@ -49,31 +49,10 @@ namespace Pomodoro
         public bool IsCompleted => _isComplete;
 
 
-        public bool ConfCheck()
-        {
-            //if (_setsUntilLongRest is not null &&
-            //    _longRestingPhaseDuration is not null)
-            //{
-            //    if (!(_setsUntilLongRest > 0 &&
-            //        _setsUntilLongRest < 50 &&
-            //        _longRestingPhaseDuration < TimeSpan.FromHours(3) &&
-            //        _longRestingPhaseDuration > TimeSpan.FromMinutes(3)))
-            //        return false;
-            //}
-
-            //return (_setsCount > 0 &&
-            //    _setsCount <= 50 &&
-            //    _workingPhaseDuration <= TimeSpan.FromHours(3) &&
-            //    _workingPhaseDuration >= TimeSpan.FromMinutes(1) &&
-            //    _restingPhaseDuration <= TimeSpan.FromHours(1) &&
-            //    _restingPhaseDuration >= TimeSpan.FromMinutes(1));
-
-            return true;
-        }
-
         public async Task StartAsync()
         {
             _isActive = true;
+            await OnPomodoroStartAsync();
 
             while (_isActive)
             {
@@ -136,6 +115,9 @@ namespace Pomodoro
 
         private async Task RunPhase(PomodoroPhase phase, TimeSpan duration)
         {
+            _isTicking = false;
+            _isPaused = false;
+
             _phase = phase;
             _currentDuration = duration;
 
@@ -156,7 +138,18 @@ namespace Pomodoro
             while (_stopwatch.Elapsed < duration)
             {
                 if (cancellationToken.IsCancellationRequested)
+                {
+                    _isTicking = false;
                     break;
+                }
+
+                if ((duration - _stopwatch.Elapsed) 
+                    <= TimeSpan.FromSeconds(4) &&
+                    !_isTicking)
+                {
+                    _isTicking = true;
+                    OnPhaseCountdown?.Invoke(this, EventArgs.Empty);
+                }
 
                 await Task.Delay(100);
             }
@@ -181,12 +174,46 @@ namespace Pomodoro
             return restDuration;
         }
 
-        
+        private async Task OnPomodoroStartAsync()
+        {
+            var handlers = OnPomodoroStart?.GetInvocationList();
+            
+            if (handlers != null)
+                await AsyncEvent(handlers);
+        }
+
+        private async Task OnPomodoroEndAsync()
+        {
+            var handlers = OnPomodoroEnd?.GetInvocationList();
+
+            if (handlers != null)
+                await AsyncEvent(handlers);
+        }
+
+        private async Task AsyncEvent(Delegate[] handlers)
+        {
+            if (handlers != null)
+            {
+                var tasks = handlers
+                    .Cast<AsyncEventHandler<EventArgs>>()
+                    .Select(h => h(this, EventArgs.Empty));
+                await Task.WhenAll(tasks);
+            }
+        }
+
+
+        public delegate Task AsyncEventHandler<TEventArgs>(object sendler,
+            TEventArgs e) where TEventArgs : EventArgs;
+
+        public event AsyncEventHandler<EventArgs>?
+            OnPomodoroStart,
+            OnPomodoroEnd;
+
         public event EventHandler?
-            OnPomodoroEnd,
             OnPomodoroInt,
             OnPhaseStart,
             OnPhaseEnd,
+            OnPhaseCountdown,
             OnPaused,
             OnResumed;
     }
