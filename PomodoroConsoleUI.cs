@@ -26,36 +26,38 @@ namespace Pomodoro
         {
             _state = ConsolePrintingState.Typing;
 
-            await Task.Delay(50);
+            int startPosition = Console.CursorTop;
 
-            await AnsiConsole.Live(Text.Empty)
-                .StartAsync(async ctx =>
+            foreach (char c in text)
+            {
+                if (typingToken.IsCancellationRequested)
                 {
-                    for (int i = 0; i < text.Length; ++i)
-                    {
-                        if (typingToken.IsCancellationRequested)
-                        {
-                            ctx.UpdateTarget(new Text(text));
-                            break;
-                        }
+                    int currentPosition = Console.CursorTop;
+                    string clear = new(' ', 
+                        (currentPosition - startPosition) * Console.BufferWidth);
+                    Console.SetCursorPosition(0, startPosition);
+                    Console.Write(clear);
+                    Console.SetCursorPosition(0, startPosition);
+                    Console.WriteLine(text);
+                    break;
+                }
 
-                        ctx.UpdateTarget(new Text(text[..(i + 1)]));
+                Console.Write(c);
 
-                        switch (text[i])
-                        {
-                            case ',':
-                            case '.':
-                            case '!':
-                            case '?':
-                            case '\n':
-                                await Task.Delay(300);
-                                break;
-                            default:
-                                await Task.Delay(50);
-                                break;
-                        }
-                    }
-                });
+                switch (c)
+                {
+                    case ',':
+                    case '.':
+                    case '!':
+                    case '?':
+                    case '\n':
+                        await Task.Delay(300);
+                        break;
+                    default:
+                        await Task.Delay(50);
+                        break;
+                }
+            }
 
             _state = ConsolePrintingState.Completed;
 
@@ -80,11 +82,12 @@ namespace Pomodoro
             CancellationToken completedToken)
         {
             await SerialPrint(text, typingToken, completedToken);
-            AnsiConsole.WriteLine();
+            Console.WriteLine();
         }
 
 
-        public async Task Message(string text)
+        public async Task Message(string text, 
+            bool immediateContinuation = true)
         {
             _typingCts?.Dispose();
             _typingCts = new();
@@ -92,15 +95,18 @@ namespace Pomodoro
             _completedCts?.Dispose();
             _completedCts = new();
 
-            await SerialPrint(text,
+            if (immediateContinuation)
+                _completedCts.Cancel();
+
+            await SerialPrintln(text,
                 _typingCts!.Token, _completedCts!.Token);
         }
 
         public async Task WelcomeMessageAsync(object sender, EventArgs e) =>
-            await Message(Messages.Welcome);
+            await Message(Messages.Start, false);
 
         public async Task EndMessageAsync() =>
-            await Message(Messages.Final);
+            await Message(Messages.End);
 
         public async Task IntMessageAsync(object sender, EventArgs e) =>
             await Message(Messages.Interruption);

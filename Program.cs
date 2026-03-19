@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Pomodoro.Resources;
+using System.Text;
 using System.Text.Json;
 
 namespace Pomodoro
@@ -6,6 +7,34 @@ namespace Pomodoro
     class Program
     {
         private const string configPath = "config.json";
+
+        private const string CommandWork = "work",
+            CommandRest = "rest",
+            CommandLong = "long",
+            CommandSets = "cycles",
+            CommandLongEvery = "long-every",
+            CommandSet = "set",
+            CommandGet = "get",
+            CommandStart = "start",
+            CommandQuit = "quit",
+            CommandClear = "clear",
+            CommandHelp = "help";
+
+        private const float WorkingPhaseDurationMin = 1,
+            WorkingPhaseDurationMax = 60,
+            RestingPhaseDurationMin = 1,
+            RestingPhaseDurationMax = 15,
+            LongRestingPhaseDurationMin = 5,
+            LongRestingPhaseDurationMax = 30;
+
+        private const int SetsMin = 1,
+            SetsMax = 99,
+            SetsUntilLongRestMin = 1,
+            SetsUntilLongRestMax = 10;
+
+
+        private static readonly JsonSerializerOptions jso =
+                            new() { WriteIndented = true };
 
 
         private static PomodoroSettings? settings;
@@ -24,10 +53,16 @@ namespace Pomodoro
             if ((settings = await LoadConfidurationAsync(configPath)) == null)
                 return 1;
 
-            var gui = new PomodoroConsoleUI();
+            gui = new PomodoroConsoleUI();
             cts = new();
             _ = Task.Run(() => PomodoroConsoleHandler.HandleTypingInput(
                 gui, cts.Token));
+
+            if (args.Length > 0)
+            {
+                await CommandHandler(args);
+                return 0;
+            }
 
             while (!isActive)
             {
@@ -44,31 +79,195 @@ namespace Pomodoro
 
             switch (args[0].ToLower())
             {
-                case "start":
+                case CommandStart:
                     await Start();
                     break;
-                case "set":
-                    SetHandler(args[1..]);
+                case CommandQuit:
+                    Environment.Exit(0);
+                    break;
+                case CommandSet:
+                    await SetHandlerAsync(args[1..]);
+                    break;
+                case CommandGet:
+                    await GetHandlerAsync(args[1..]);
+                    break;
+                case CommandHelp:
+                    Console.WriteLine();
+                    await gui!.Message(Messages.Help);
+                    break;
+                case CommandClear:
+                    Console.Clear();
+                    break;
+                default:
+                    await gui!.Message(Messages.CommandHandleError);
                     break;
             }
 
             return 0;
         }
 
-        private static void SetHandler(string[]? args)
+        private static async Task GetHandlerAsync(string[]? args)
         {
-            //if ()
-            //settings.WorkingPhaseMinutes = 10;
-            //JsonSerializerOptions jsonSerializerOptions = new() { WriteIndented = true };
-            //var options = jsonSerializerOptions;
-            //string updatedJson = JsonSerializer.Serialize(settings, options);
-            //File.WriteAllText(configPath, updatedJson);
+            Console.WriteLine();
+            if (args == null || args.Length == 0)
+            {
+                await gui!.Message(Messages.GetHelp);
+                return;
+            }
+
+            switch (args[0].ToLower())
+            {
+                case CommandWork:
+                    await gui!.Message(Messages.CurrentWorkingDuration +
+                        settings!.WorkingPhaseMinutes);
+                    break;
+                case CommandRest:
+                    await gui!.Message(Messages.CurrentRestingDuration +
+                        settings!.RestingPhaseMinutes);
+                    break;
+                case CommandLong:
+                    await gui!.Message(Messages.CurrentLongRestingDuration +
+                        settings!.LongRestingPhaseMinutes);
+                    break;
+                case CommandSets:
+                    await gui!.Message(Messages.CurrentCycles +
+                        settings!.SetsCount);
+                    break;
+                case CommandLongEvery:
+                    await gui!.Message(Messages.CurrentLongEvery +
+                        settings!.SetsUntilLongResting);
+                    break;
+                default:
+                    await gui!.Message(Messages.CommandHandleError);
+                    break;
+
+            }
+
+            Console.WriteLine();
+        }
+
+        private static async Task SetHandlerAsync(string[]? args)
+        {
+            Console.WriteLine();
+            if (args == null || args.Length <= 1)
+            {
+                await gui!.Message(Messages.SetHelp);
+                return;
+            }
+
+            switch (args[0].ToLower())
+            {
+                case CommandWork:
+                    await HandleSetCommand(args[1],
+                        WorkingPhaseDurationMin, WorkingPhaseDurationMax,
+                        () => settings!.WorkingPhaseMinutes,
+                        v => settings!.WorkingPhaseMinutes = v,
+                        Messages.WorkingDurationSetError);
+                    break;
+                case CommandRest:
+                    await HandleSetCommand(args[1],
+                        RestingPhaseDurationMin, RestingPhaseDurationMax,
+                        () => settings!.RestingPhaseMinutes,
+                        v => settings!.RestingPhaseMinutes = v,
+                        Messages.RestingDurationSetError);
+                    break;
+                case CommandLong:
+                    await HandleSetCommand(args[1],
+                        LongRestingPhaseDurationMin, 
+                        LongRestingPhaseDurationMax,
+                        () => settings!.LongRestingPhaseMinutes,
+                        v => settings!.LongRestingPhaseMinutes = v,
+                        Messages.LongRestingDurationSetError);
+                    break;
+                case CommandSets:
+                    await HandleSetCommand(args[1],
+                        SetsMin, SetsMax,
+                        () => settings!.SetsCount,
+                        v => settings!.SetsCount = v,
+                        Messages.CyclesSetError);
+                    break;
+                case CommandLongEvery:
+                    await HandleSetCommand(args[1],
+                        SetsUntilLongRestMin,
+                        SetsUntilLongRestMax,
+                        () => settings!.SetsUntilLongResting,
+                        v => settings!.SetsUntilLongResting = v,
+                        Messages.LongEverySetError);
+                    break;
+                default:
+                    await gui!.Message(Messages.CommandHandleError);
+                    break;
+
+            }
+            
+            Console.WriteLine();
+        }
+
+        private static async Task HandleSetCommand(
+            string valueStr,
+            float min, float max,
+            Func<float?> getter,
+            Action<float> setter,
+            string errorMessage)
+        {
+            if (float.TryParse(valueStr, out float newValue)
+                && newValue >= min && newValue <= max)
+            {
+                if (getter() != newValue)
+                {
+                    setter(newValue);
+                    File.WriteAllText(configPath, 
+                        JsonSerializer.Serialize(settings, jso));
+                }
+                await gui!.Message(Messages.SuccessfullySet +
+                    "\n" +
+                    Messages.CurrentValue +
+                    getter());
+            }
+            else
+            {
+                await gui!.Message(errorMessage +
+                    "\n" +
+                    Messages.CurrentValue +
+                    getter());
+            }
+        }
+
+        private static async Task HandleSetCommand(
+            string valueStr,
+            int min, int max,
+            Func<int?> getter,
+            Action<int> setter,
+            string errorMessage)
+        {
+            if (int.TryParse(valueStr, out int newValue)
+                && newValue >= min && newValue <= max)
+            {
+                if (getter() != newValue)
+                {
+                    setter(newValue);
+                    File.WriteAllText(configPath,
+                        JsonSerializer.Serialize(settings, jso));
+                }
+                await gui!.Message(Messages.SuccessfullySet +
+                    "\n" +
+                    Messages.CurrentValue +
+                    getter());
+            }
+            else
+            {
+                await gui!.Message(errorMessage +
+                    "\n" +
+                    Messages.CurrentValue +
+                    getter());
+            }
         }
 
 
         private static async Task<int> Start()
         {
             isActive = true;
+            Console.Clear();
 
             var engine = new PomodoroEngine(
                 TimeSpan.FromMinutes(settings!.WorkingPhaseMinutes),
@@ -129,51 +328,43 @@ namespace Pomodoro
                 /* if it has values */
                 if (settings.SetsUntilLongResting.HasValue)
                 {
-                    /* checking number of sets */
+                    /* checking the number of sets */
                     if (!(settings.SetsUntilLongResting is >= 1 and <= 10))
                     {
-                        Console.WriteLine("Invalid sets value before a " +
-                            "long break. Acceptable values are " +
-                            "from 1 to 10.");
+                        Console.WriteLine(Messages.CyclesSetError);
                         ret = false;
                     }
 
                     /* checking long rest phase duration */
                     if (!(settings.LongRestingPhaseMinutes is >= 5 and <= 30))
                     {
-                        Console.WriteLine("The long break value is " +
-                            "incorrect. Acceptable values are " +
-                            "from 5 to 30 minutes.");
+                        Console.WriteLine(Messages.LongEverySetError);
                         ret = false;
                     }
                 } /* else nothing to check */
             }
             else /* if the values are different */
             {
-                Console.WriteLine("The long break values are not fully set." +
-                    " A long break will be ignored.");
+                Console.WriteLine(Messages.LongRestSettingsError);
                 settings.LongRestingPhaseMinutes = null;
                 settings.SetsUntilLongResting = null;
             }
 
             if (!(settings.SetsCount is >= 1 and <= 99))
             {
-                Console.WriteLine("Incorrect number of sets. " +
-                    "Acceptable values are from 1 to 99.");
+                Console.WriteLine(Messages.CyclesSetError);
                 ret = false;
             }
 
             if (!(settings.WorkingPhaseMinutes is >= 1 and <= 60))
             {
-                Console.WriteLine("Incorrect duration of the working " +
-                    "phase. Acceptable values are from 1 to 60 minutes.");
+                Console.WriteLine(Messages.WorkingDurationSetError);
                 ret = false;
             }
 
             if (!(settings.RestingPhaseMinutes is >= 1 and <= 15))
             {
-                Console.WriteLine("Incorrect duration of the rest " +
-                    "phase. Acceptable values are from 1 to 15 minutes.");
+                Console.WriteLine(Messages.RestingDurationSetError);
                 ret = false;
             }
 

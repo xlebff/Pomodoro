@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Pomodoro": {
-      "commandName": "Project",
-      "commandLineArgs": "set -w 5"
+      "commandName": "Project"
     }
   }
 }

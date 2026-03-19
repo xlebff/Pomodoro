@@ -61,11 +61,132 @@ namespace Pomodoro.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Great job!\nYou&apos;ve completed your Pomodoro session! I&apos;m so proud of you for staying focused.\nKeep up the amazing work. See you next session! (◕‿◕) ❤️.
+        ///   Looks up a localized string similar to Unknown command. Use &quot;help&quot; to get valid command list..
         /// </summary>
-        internal static string Final {
+        internal static string CommandHandleError {
             get {
-                return ResourceManager.GetString("Final", resourceCulture);
+                return ResourceManager.GetString("CommandHandleError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current total cycles: .
+        /// </summary>
+        internal static string CurrentCycles {
+            get {
+                return ResourceManager.GetString("CurrentCycles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current long resing rare: .
+        /// </summary>
+        internal static string CurrentLongEvery {
+            get {
+                return ResourceManager.GetString("CurrentLongEvery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current long resting duration: .
+        /// </summary>
+        internal static string CurrentLongRestingDuration {
+            get {
+                return ResourceManager.GetString("CurrentLongRestingDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current resting duration: .
+        /// </summary>
+        internal static string CurrentRestingDuration {
+            get {
+                return ResourceManager.GetString("CurrentRestingDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current value: .
+        /// </summary>
+        internal static string CurrentValue {
+            get {
+                return ResourceManager.GetString("CurrentValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current working phase duration: .
+        /// </summary>
+        internal static string CurrentWorkingDuration {
+            get {
+                return ResourceManager.GetString("CurrentWorkingDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect number of sets. Acceptable values are from 1 to 99..
+        /// </summary>
+        internal static string CyclesSetError {
+            get {
+                return ResourceManager.GetString("CyclesSetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Great job!
+        ///You&apos;ve completed your Pomodoro session! I&apos;m so proud of you for staying focused.
+        ///Keep up the amazing work. See you next session! (◕‿◕) ❤️.
+        /// </summary>
+        internal static string End {
+            get {
+                return ResourceManager.GetString("End", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage: get [parameter]
+        ///
+        ///Display current Pomodoro timer settings.
+        ///
+        ///Parameters:
+        ///  work          Show current work session duration (minutes)
+        ///  short         Show current short break duration (minutes)
+        ///  long          Show current long break duration (minutes)
+        ///  cycles        Show total number of work sessions (Pomodoros) to complete
+        ///  long-every    Show number of work sessions before a long break
+        ///
+        ///If no parameter is specified, all settings are displayed.
+        ///
+        ///Examples:
+        ///  get work            # show work session du [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string GetHelp {
+            get {
+                return ResourceManager.GetString("GetHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage: &lt;command&gt; [arguments]
+        ///
+        ///Commands:
+        ///  start         Start the Pomodoro timer (begins a work session)
+        ///  quit          Exit the application
+        ///  set           Modify timer settings (see `set` help for details)
+        ///  get           Display current settings (see `get` help for details)
+        ///
+        ///For help with a specific command, type:
+        ///  help &lt;command&gt;   (e.g., help set)
+        ///
+        ///Examples:
+        ///  start             # start the timer
+        ///  set work 25       # set work duration to 25 minutes
+        ///  get               # show all settings
+        ///  quit        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -79,11 +200,91 @@ namespace Pomodoro.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey there! Welcome to your cozy Pomodoro timer!\nI&apos;m here to help you stay focused and take sweet breaks.\nReady to dive in? Let&apos;s make today productive and fun! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧.
+        ///   Looks up a localized string similar to Invalid sets value before a long break. Acceptable values are from 1 to 10..
         /// </summary>
-        internal static string Welcome {
+        internal static string LongEverySetError {
             get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
+                return ResourceManager.GetString("LongEverySetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The long break value is incorrect. Acceptable values are from 5 to 30 minutes..
+        /// </summary>
+        internal static string LongRestingDurationSetError {
+            get {
+                return ResourceManager.GetString("LongRestingDurationSetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The long break values are not fully set. A long break will be ignored..
+        /// </summary>
+        internal static string LongRestSettingsError {
+            get {
+                return ResourceManager.GetString("LongRestSettingsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect duration of the rest phase. Acceptable values are from 1 to 15 minutes..
+        /// </summary>
+        internal static string RestingDurationSetError {
+            get {
+                return ResourceManager.GetString("RestingDurationSetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage: set &lt;parameter&gt; &lt;value&gt;
+        ///
+        ///Modify Pomodoro timer settings.
+        ///
+        ///Parameters:
+        ///  work          Set work session duration (minutes)
+        ///  short         Set short break duration (minutes)
+        ///  long          Set long break duration (minutes)
+        ///  cycles        Set total number of work sessions (Pomodoros) to complete
+        ///  long-every    Set number of work sessions before a long break
+        ///
+        ///Examples:
+        ///  set work 25          # 25-minute work sessions
+        ///  set short 5          # 5-minute short breaks
+        ///  set long 15           [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SetHelp {
+            get {
+                return ResourceManager.GetString("SetHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hey there! Welcome to your cozy Pomodoro timer!
+        ///I&apos;m here to help you stay focused and take sweet breaks.
+        ///Ready to dive in? Let&apos;s make today productive and fun! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧.
+        /// </summary>
+        internal static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value was successfully set..
+        /// </summary>
+        internal static string SuccessfullySet {
+            get {
+                return ResourceManager.GetString("SuccessfullySet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect duration of the working phase.
+        ///Acceptable values are from 1 to 60 minutes..
+        /// </summary>
+        internal static string WorkingDurationSetError {
+            get {
+                return ResourceManager.GetString("WorkingDurationSetError", resourceCulture);
             }
         }
     }

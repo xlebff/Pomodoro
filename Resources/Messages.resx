@@ -117,13 +117,123 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Final" xml:space="preserve">
-    <value>Great job!\nYou've completed your Pomodoro session! I'm so proud of you for staying focused.\nKeep up the amazing work. See you next session! (◕‿◕) ❤️</value>
+  <data name="End" xml:space="preserve">
+    <value>Great job!
+You've completed your Pomodoro session! I'm so proud of you for staying focused.
+Keep up the amazing work. See you next session! (◕‿◕) ❤️</value>
   </data>
   <data name="Interruption" xml:space="preserve">
     <value>Sorry you had to take a break. See you next time!</value>
   </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Hey there! Welcome to your cozy Pomodoro timer!\nI'm here to help you stay focused and take sweet breaks.\nReady to dive in? Let's make today productive and fun! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</value>
+  <data name="SetHelp" xml:space="preserve">
+    <value>Usage: set &lt;parameter&gt; &lt;value&gt;
+
+Modify Pomodoro timer settings.
+
+Parameters:
+  work          Set work session duration (minutes)
+  short         Set short break duration (minutes)
+  long          Set long break duration (minutes)
+  cycles        Set total number of work sessions (Pomodoros) to complete
+  long-every    Set number of work sessions before a long break
+
+Examples:
+  set work 25          # 25-minute work sessions
+  set short 5          # 5-minute short breaks
+  set long 15          # 15-minute long breaks
+  set cycles 12        # complete 12 Pomodoros in total
+  set long-every 4     # take a long break after every 4 Pomodoros
+
+All values must be positive integers. Changes take effect immediately.</value>
+  </data>
+  <data name="WorkingDurationSetError" xml:space="preserve">
+    <value>Incorrect duration of the working phase.
+Acceptable values are from 1 to 60 minutes.</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Hey there! Welcome to your cozy Pomodoro timer!
+I'm here to help you stay focused and take sweet breaks.
+Ready to dive in? Let's make today productive and fun! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</value>
+  </data>
+  <data name="CurrentValue" xml:space="preserve">
+    <value>Current value: </value>
+  </data>
+  <data name="CommandHandleError" xml:space="preserve">
+    <value>Unknown command. Use "help" to get valid command list.</value>
+  </data>
+  <data name="SuccessfullySet" xml:space="preserve">
+    <value>The value was successfully set.</value>
+  </data>
+  <data name="RestingDurationSetError" xml:space="preserve">
+    <value>Incorrect duration of the rest phase. Acceptable values are from 1 to 15 minutes.</value>
+  </data>
+  <data name="GetHelp" xml:space="preserve">
+    <value>Usage: get [parameter]
+
+Display current Pomodoro timer settings.
+
+Parameters:
+  work          Show current work session duration (minutes)
+  short         Show current short break duration (minutes)
+  long          Show current long break duration (minutes)
+  cycles        Show total number of work sessions (Pomodoros) to complete
+  long-every    Show number of work sessions before a long break
+
+If no parameter is specified, all settings are displayed.
+
+Examples:
+  get work            # show work session duration
+  get short           # show short break duration
+  get long            # show long break duration
+  get cycles          # show total Pomodoros to complete
+  get long-every      # show long break interval
+  get                 # show all settings
+
+All values are positive integers. Use `set` to change them.</value>
+  </data>
+  <data name="CurrentWorkingDuration" xml:space="preserve">
+    <value>Current working phase duration: </value>
+  </data>
+  <data name="CurrentRestingDuration" xml:space="preserve">
+    <value>Current resting duration: </value>
+  </data>
+  <data name="CurrentLongRestingDuration" xml:space="preserve">
+    <value>Current long resting duration: </value>
+  </data>
+  <data name="LongRestingDurationSetError" xml:space="preserve">
+    <value>The long break value is incorrect. Acceptable values are from 5 to 30 minutes.</value>
+  </data>
+  <data name="CurrentCycles" xml:space="preserve">
+    <value>Current total cycles: </value>
+  </data>
+  <data name="CurrentLongEvery" xml:space="preserve">
+    <value>Current long resing rare: </value>
+  </data>
+  <data name="LongEverySetError" xml:space="preserve">
+    <value>Invalid sets value before a long break. Acceptable values are from 1 to 10.</value>
+  </data>
+  <data name="CyclesSetError" xml:space="preserve">
+    <value>Incorrect number of sets. Acceptable values are from 1 to 99.</value>
+  </data>
+  <data name="LongRestSettingsError" xml:space="preserve">
+    <value>The long break values are not fully set. A long break will be ignored.</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Usage: &lt;command&gt; [arguments]
+
+Commands:
+  start         Start the Pomodoro timer (begins a work session)
+  quit          Exit the application
+  set           Modify timer settings (see `set` help for details)
+  get           Display current settings (see `get` help for details)
+
+For help with a specific command, type:
+  help &lt;command&gt;   (e.g., help set)
+
+Examples:
+  start             # start the timer
+  set work 25       # set work duration to 25 minutes
+  get               # show all settings
+  quit              # exit the program</value>
   </data>
 </root>
