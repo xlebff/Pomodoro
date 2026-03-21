@@ -70,6 +70,51 @@ namespace Pomodoro.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration file is empty or contains invalid data..
+        /// </summary>
+        internal static string ConfigInvalidDataError {
+            get {
+                return ResourceManager.GetString("ConfigInvalidDataError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid JSON format: .
+        /// </summary>
+        internal static string ConfigInvalidJsonError {
+            get {
+                return ResourceManager.GetString("ConfigInvalidJsonError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration file not found. A default configuration will be used..
+        /// </summary>
+        internal static string ConfigNotFoundError {
+            get {
+                return ResourceManager.GetString("ConfigNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error reading configuration file: .
+        /// </summary>
+        internal static string ConfigReadingError {
+            get {
+                return ResourceManager.GetString("ConfigReadingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving configuration: .
+        /// </summary>
+        internal static string ConfigSaveError {
+            get {
+                return ResourceManager.GetString("ConfigSaveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current total cycles: .
         /// </summary>
         internal static string CurrentCycles {
@@ -158,7 +203,7 @@ namespace Pomodoro.Resources {
         ///If no parameter is specified, all settings are displayed.
         ///
         ///Examples:
-        ///  get work            # show work session du [rest of string was truncated]&quot;;.
+        ///  get work            # show w [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GetHelp {
             get {
@@ -181,8 +226,7 @@ namespace Pomodoro.Resources {
         ///Examples:
         ///  start             # start the timer
         ///  set work 25       # set work duration to 25 minutes
-        ///  get               # show all settings
-        ///  quit        [rest of string was truncated]&quot;;.
+        ///  get               # show all settings [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help {
             get {
@@ -223,6 +267,15 @@ namespace Pomodoro.Resources {
         internal static string LongRestSettingsError {
             get {
                 return ResourceManager.GetString("LongRestSettingsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value is not set..
+        /// </summary>
+        internal static string NoValue {
+            get {
+                return ResourceManager.GetString("NoValue", resourceCulture);
             }
         }
         

@@ -1,10 +1,11 @@
-﻿using System.Diagnostics;
+﻿using Pomodoro.Core.Interfaces;
+using System.Diagnostics;
 
-namespace Pomodoro
+namespace Pomodoro.Core.Engine
 {
     internal enum PomodoroPhase { Working, Resting }
 
-    internal class PomodoroEngine
+    internal class PomodoroEngine : IPomodoroEngine
     {
         private readonly Stopwatch _stopwatch = new();
 
@@ -52,14 +53,14 @@ namespace Pomodoro
         public async Task StartAsync()
         {
             _isActive = true;
-            await OnPomodoroStartAsync();
+            await AsyncEvent(OnPomodoroStart?.GetInvocationList());
 
             while (_isActive)
             {
                 if (_currentSet >= _setsCount)
                 {
                     _isActive = false;
-                    OnPomodoroEnd?.Invoke(this, EventArgs.Empty);
+                    await AsyncEvent(OnPomodoroEnd?.GetInvocationList());
                     return;
                 }
 
@@ -79,7 +80,7 @@ namespace Pomodoro
             _isComplete = false;
         }
 
-        public void Pause()
+        public async Task Pause()
         {
             if (!_isPaused)
             {
@@ -95,13 +96,15 @@ namespace Pomodoro
             }
         }
 
-        public void Skip()
+        public Task Skip()
         {
             _cts?.Cancel();
             _isPaused = false;
+
+            return Task.CompletedTask;
         }
 
-        public void Quit()
+        public async Task Quit()
         {
             _stopwatch.Stop();
             _isActive = false;
@@ -109,7 +112,7 @@ namespace Pomodoro
             _cts?.Cancel();
             _globalCTS.Cancel();
 
-            OnPomodoroInt?.Invoke(this, EventArgs.Empty);
+            await AsyncEvent(OnPomodoroInt?.GetInvocationList());
         }
 
 
@@ -126,14 +129,14 @@ namespace Pomodoro
 
             await RunTimer(duration, _cts.Token);
 
-            OnPhaseEnd?.Invoke(this, EventArgs.Empty);
+            await AsyncEvent(OnPhaseEnd?.GetInvocationList());
         }
 
         private async Task RunTimer(TimeSpan duration,
             CancellationToken cancellationToken)
         {
             _stopwatch.Start();
-            OnPhaseStart?.Invoke(this, EventArgs.Empty);
+            await AsyncEvent(OnPhaseStart?.GetInvocationList());
 
             while (_stopwatch.Elapsed < duration)
             {
@@ -148,7 +151,8 @@ namespace Pomodoro
                     !_isTicking)
                 {
                     _isTicking = true;
-                    OnPhaseCountdown?.Invoke(this, EventArgs.Empty);
+                    _ = Task.Run(() =>
+                        AsyncEvent(OnPhaseCountdown?.GetInvocationList()));
                 }
 
                 await Task.Delay(100);
@@ -174,23 +178,7 @@ namespace Pomodoro
             return restDuration;
         }
 
-        private async Task OnPomodoroStartAsync()
-        {
-            var handlers = OnPomodoroStart?.GetInvocationList();
-            
-            if (handlers != null)
-                await AsyncEvent(handlers);
-        }
-
-        private async Task OnPomodoroEndAsync()
-        {
-            var handlers = OnPomodoroEnd?.GetInvocationList();
-
-            if (handlers != null)
-                await AsyncEvent(handlers);
-        }
-
-        private async Task AsyncEvent(Delegate[] handlers)
+        private async Task AsyncEvent(Delegate[]? handlers)
         {
             if (handlers != null)
             {
@@ -207,13 +195,13 @@ namespace Pomodoro
 
         public event AsyncEventHandler<EventArgs>?
             OnPomodoroStart,
-            OnPomodoroEnd;
-
-        public event EventHandler?
             OnPomodoroInt,
+            OnPomodoroEnd,
             OnPhaseStart,
             OnPhaseEnd,
-            OnPhaseCountdown,
+            OnPhaseCountdown;
+
+        public event EventHandler?
             OnPaused,
             OnResumed;
     }

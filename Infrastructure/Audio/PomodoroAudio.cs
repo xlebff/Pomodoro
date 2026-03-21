@@ -1,8 +1,9 @@
 ﻿using NAudio.Wave;
+using Pomodoro.Core.Interfaces;
 
-namespace Pomodoro
+namespace Pomodoro.Infrastructure.Audio
 {
-    internal class PomodoroAudio
+    internal class PomodoroAudio : IAudioService
     {
         private const string TickingSoundPath =
             "./TimerSound/tick_sound.mp3";
@@ -28,13 +29,13 @@ namespace Pomodoro
         }
 
 
-        public void CountdownPlay(object? sender, EventArgs e)
+        public async Task PlayTickAsync(object? sender, EventArgs e)
         {
             _tickingSound.Position = 0;
             _tickPlayer.Play();
         }
-        
-        public void AlarmPlay(object? sender, EventArgs e)
+
+        public async Task PlayAlarmAsync(object? sender, EventArgs e)
         {
             _tickPlayer.Stop();
             _alarmSound.Position = 0;

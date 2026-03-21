@@ -1,4 +1,4 @@
-﻿namespace Pomodoro
+﻿namespace Pomodoro.Core.Models
 {
     internal class PomodoroSettings
     {

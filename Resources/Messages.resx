@@ -236,4 +236,22 @@ Examples:
   get               # show all settings
   quit              # exit the program</value>
   </data>
+  <data name="NoValue" xml:space="preserve">
+    <value>The value is not set.</value>
+  </data>
+  <data name="ConfigNotFoundError" xml:space="preserve">
+    <value>Configuration file not found. A default configuration will be used.</value>
+  </data>
+  <data name="ConfigReadingError" xml:space="preserve">
+    <value>Error reading configuration file: </value>
+  </data>
+  <data name="ConfigInvalidJsonError" xml:space="preserve">
+    <value>Invalid JSON format: </value>
+  </data>
+  <data name="ConfigInvalidDataError" xml:space="preserve">
+    <value>Configuration file is empty or contains invalid data.</value>
+  </data>
+  <data name="ConfigSaveError" xml:space="preserve">
+    <value>Error saving configuration: </value>
+  </data>
 </root>
