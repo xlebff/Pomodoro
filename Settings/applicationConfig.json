@@ -1,0 +1,7 @@
+{
+  "DefaultMusicVolume": 0.3,
+  "DefaultTickingVolume": 1,
+  "DefaultPhaseEndBellVolume": 1,
+  "TimerSoundDir": "./Assets/Audio/TimerSound",
+  "MusicDir": "./Assets/Audio/Music"
+}

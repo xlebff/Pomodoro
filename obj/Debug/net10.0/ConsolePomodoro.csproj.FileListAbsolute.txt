@@ -1,0 +1,37 @@
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Resources\Messages.resx
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Assets\Audio\Music\Sleep Radiance, Lo Fi Hip Hop, LOFI - Sleepy Lofi Harmonies.mp3
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Assets\Audio\Music\Sleep Radiance, Lo Fi Hip Hop, LOFI - Soothing Slumber Beats.mp3
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Assets\Audio\Music\Sleep Radiance, Lo Fi Hip Hop, LOFI - Whispering Sleep Lofi.mp3
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Assets\Audio\TimerSound\end_bell.mp3
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Assets\Audio\TimerSound\ticking.mp3
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Data\Sessions\sessions.jsonl
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Settings\applicationConfig.json
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Settings\pomodoroConfig.json
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\ConsolePomodoro.exe
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\ConsolePomodoro.deps.json
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\ConsolePomodoro.runtimeconfig.json
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\ConsolePomodoro.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\ConsolePomodoro.pdb
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.Asio.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.Core.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.Midi.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.Wasapi.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\NAudio.WinMM.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Spectre.Console.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\bin\Debug\net10.0\Spectre.Console.Ansi.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.csproj.AssemblyReference.cache
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.Resources.Messages.resources
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.csproj.GenerateResource.cache
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.AssemblyInfoInputs.cache
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.AssemblyInfo.cs
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.csproj.CoreCompileInputs.cache
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsoleP.CBCDFFDB.Up2Date
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\refint\ConsolePomodoro.dll
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.pdb
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ConsolePomodoro.genruntimeconfig.cache
+D:\Data\Programming\CSharp\ConsolePomodoro\obj\Debug\net10.0\ref\ConsolePomodoro.dll

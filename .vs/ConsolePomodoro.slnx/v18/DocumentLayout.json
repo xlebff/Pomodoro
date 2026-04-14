@@ -1,0 +1,358 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\contracts\\ijsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\contracts\\ijsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\audio\\naudioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\audio\\naudioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\contracts\\iaudioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\contracts\\iaudioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\configuration\\applicationjsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\configuration\\applicationjsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\configuration\\pomodorojsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\configuration\\pomodorojsonconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\configuration\\jsonreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\configuration\\jsonreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\engine\\pomodoroengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:engine\\pomodoroengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\ui\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\ui\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\ui\\consoleinputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\ui\\consoleinputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\settings\\pomodoroconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:settings\\pomodoroconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\resources\\messages.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:resources\\messages.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\contracts\\iinputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\contracts\\iinputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\contracts\\iuserinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\contracts\\iuserinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\settings\\applicationconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:settings\\applicationconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\domain\\models\\sessionrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:domain\\models\\sessionrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\core\\contracts\\ipomodoroengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:core\\contracts\\ipomodoroengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|d:\\data\\programming\\csharp\\consolepomodoro\\infrastructure\\persistence\\sessions\\jsonlinessessionlogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2331609D-D5A7-B151-2F81-1C40559A1D30}|ConsolePomodoro.csproj|solutionrelative:infrastructure\\persistence\\sessions\\jsonlinessessionlogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 125,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Messages.resx",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Resources\\Messages.resx",
+              "RelativeDocumentMoniker": "Resources\\Messages.resx",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Resources\\Messages.resx",
+              "RelativeToolTip": "Resources\\Messages.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-04-11T08:21:57.303Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 275,
+          "SelectedChildIndex": 17,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "pomodoroConfig.json",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Settings\\pomodoroConfig.json",
+              "RelativeDocumentMoniker": "Settings\\pomodoroConfig.json",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Settings\\pomodoroConfig.json",
+              "RelativeToolTip": "Settings\\pomodoroConfig.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-08T05:49:23.624Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "applicationConfig.json",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Settings\\applicationConfig.json",
+              "RelativeDocumentMoniker": "Settings\\applicationConfig.json",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Settings\\applicationConfig.json",
+              "RelativeToolTip": "Settings\\applicationConfig.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-08T05:49:06.919Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JsonReader.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\JsonReader.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Configuration\\JsonReader.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\JsonReader.cs",
+              "RelativeToolTip": "Infrastructure\\Configuration\\JsonReader.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T13:47:58.789Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IJsonConfigRepository.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IJsonConfigRepository.cs",
+              "RelativeDocumentMoniker": "Core\\Contracts\\IJsonConfigRepository.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IJsonConfigRepository.cs",
+              "RelativeToolTip": "Core\\Contracts\\IJsonConfigRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:04:40.813Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PomodoroJsonConfigRepository.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\PomodoroJsonConfigRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Configuration\\PomodoroJsonConfigRepository.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\PomodoroJsonConfigRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Configuration\\PomodoroJsonConfigRepository.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAowG4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T17:12:05.148Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationJsonConfigRepository.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\ApplicationJsonConfigRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Configuration\\ApplicationJsonConfigRepository.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Configuration\\ApplicationJsonConfigRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Configuration\\ApplicationJsonConfigRepository.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowH0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:16:18.405Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SessionRecord.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Domain\\Models\\SessionRecord.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\SessionRecord.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Domain\\Models\\SessionRecord.cs",
+              "RelativeToolTip": "Domain\\Models\\SessionRecord.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T17:26:41.835Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "JsonLinesSessionLogRepository.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Persistence\\Sessions\\JsonLinesSessionLogRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Sessions\\JsonLinesSessionLogRepository.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Persistence\\Sessions\\JsonLinesSessionLogRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Sessions\\JsonLinesSessionLogRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T17:35:47.198Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAudioService.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IAudioService.cs",
+              "RelativeDocumentMoniker": "Core\\Contracts\\IAudioService.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IAudioService.cs",
+              "RelativeToolTip": "Core\\Contracts\\IAudioService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAADgv1gAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T17:41:52.826Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NAudioService.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Audio\\NAudioService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Audio\\NAudioService.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\Audio\\NAudioService.cs",
+              "RelativeToolTip": "Infrastructure\\Audio\\NAudioService.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAIwLkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:10:57.327Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IInputHandler.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IInputHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Contracts\\IInputHandler.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IInputHandler.cs",
+              "RelativeToolTip": "Core\\Contracts\\IInputHandler.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAASwBAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:39:20.186Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ConsoleInputHandler.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\UI\\ConsoleInputHandler.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\UI\\ConsoleInputHandler.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\UI\\ConsoleInputHandler.cs",
+              "RelativeToolTip": "Infrastructure\\UI\\ConsoleInputHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA/wBIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:02:18.327Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IPomodoroEngine.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IPomodoroEngine.cs",
+              "RelativeDocumentMoniker": "Core\\Contracts\\IPomodoroEngine.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IPomodoroEngine.cs",
+              "RelativeToolTip": "Core\\Contracts\\IPomodoroEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:30:15.303Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PomodoroEngine.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Engine\\PomodoroEngine.cs",
+              "RelativeDocumentMoniker": "Engine\\PomodoroEngine.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Engine\\PomodoroEngine.cs",
+              "RelativeToolTip": "Engine\\PomodoroEngine.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAAJYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:30:26.524Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IUserInterface.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IUserInterface.cs",
+              "RelativeDocumentMoniker": "Core\\Contracts\\IUserInterface.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Contracts\\IUserInterface.cs",
+              "RelativeToolTip": "Core\\Contracts\\IUserInterface.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAvwBIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:04:22.544Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ConsoleUI.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\UI\\ConsoleUI.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\UI\\ConsoleUI.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Infrastructure\\UI\\ConsoleUI.cs",
+              "RelativeToolTip": "Infrastructure\\UI\\ConsoleUI.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAWwNsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:06:31.838Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAYwFAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T11:17:15.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Application.cs",
+              "DocumentMoniker": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Application.cs",
+              "RelativeDocumentMoniker": "Core\\Application.cs",
+              "ToolTip": "D:\\Data\\Programming\\CSharp\\ConsolePomodoro\\Core\\Application.cs",
+              "RelativeToolTip": "Core\\Application.cs",
+              "ViewState": "AgIAAKQBAAAAAAAAAAAAAOQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T09:14:09.087Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
