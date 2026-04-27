@@ -1,0 +1,7 @@
+{
+  "CyclesCount": 4,
+  "WorkPhaseDuration": 25,
+  "BreakPhaseDuration": 5,
+  "LongBreakPhaseDuration": 15,
+  "CyclesBeforeLongBreak": 2
+}
